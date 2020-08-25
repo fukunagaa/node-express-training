@@ -1,9 +1,9 @@
 # node-express-training
 
-- 初期化
+- express 作成
 
 ```
-$ npm init -y
+$ express --no-view ./node-express-training
 ```
 
 - パッケージインストール
