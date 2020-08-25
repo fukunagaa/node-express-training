@@ -1,0 +1,6 @@
+{
+  "watch": ["src"],
+  "ext": "js",
+  "ignore": ["src/index.js"],
+  "exec": "node ./app.js"
+}
