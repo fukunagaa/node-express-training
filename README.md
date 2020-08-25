@@ -1,32 +1,14 @@
 # node-express-training
-[webフレームワーク]expressを用いたサーバサイドのサンプル
 
-## プロジェクト作成
-- express-generator(管理者権限が必要)
+- 初期化
+
 ```
-$ npm install -g express-generator
-```
-- ディレクトリ作成(雛形)
-```
-$ express node-express-training
-$ cd node-express-training
+$ npm init -y
 ```
 
-- インストール
-```
-$ npm install
-```
+- パッケージインストール
 
-- サーバ起動
 ```
-$ npm run start
+$ npm install --save-dev express
+$ npm install --save-dev nodemon cookie-parser http-errors morgan
 ```
-
-## 補足
-### express
-- expressとは
-Node.jsのための、高速で軽量でオープンなWebフレームワーク。
-
-- なぜexpress
-1. 情報とサンプルが豊富
-2. 拡張機能が豊富で使いやすい
