@@ -18,3 +18,15 @@ $ express --no-view ./node-express-training
 $ npm install --save-dev express
 $ npm install --save-dev nodemon cookie-parser http-errors morgan
 ```
+
+- jsonwebtoken のインストール
+
+```
+$ npm install --save-dev jsonwebtoken
+```
+
+- express-session のインストール
+
+```
+$ npm install --save-dev express-session
+```
