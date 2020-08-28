@@ -31,8 +31,6 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/login", loginRouter);
 
-module.exports = app;
-
 const port = 8080;
 http.createServer(app).listen(port, () => {
   console.log("server: http://localhost:" + port);
