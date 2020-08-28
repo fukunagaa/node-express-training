@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
 const authenticate = require("../utils/authenticate");
+const sessionCheck = require("../utils/sessionCheck");
 
 /* database化 */
 const account = {
@@ -38,7 +39,7 @@ router.post("/", function (req, res, next) {
   res.status(200).json(body);
 });
 
-router.post("/kakunin", authenticate, function (req, res, next) {
+router.post("/kakunin", sessionCheck, authenticate, function (req, res, next) {
   // session
   console.log(req.session);
   console.log(req.session.name);
