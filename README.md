@@ -1,5 +1,9 @@
 # node-express-training
 
+index.html を SPA として RestAPI を想定して作成
+
+## 環境構築
+
 - express-generator をグローバルにインストール
 
 ```
