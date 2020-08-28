@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
-const { jwtCheck, sessionCheck } = require("../utils/authenticate");
+const authenticate = require("../utils/authenticate");
+const config = require("../utils/config");
 
 /* database化 */
 const account = {
@@ -14,8 +15,7 @@ router.post("/", function (req, res, next) {
   // session
   if (account.password === req.body.password) {
     req.session.name = account.name;
-    const hour = 1800000;
-    req.session.cookie.maxAge = hour;
+    req.session.cookie.maxAge = config.session.maxAge;
   }
   console.log(req.session);
   console.log(req.session.name);
@@ -24,11 +24,8 @@ router.post("/", function (req, res, next) {
   const payload = {
     email: req.body.email,
   };
-  const secret = "secret_key_goes_here";
-  const options = {
-    algorithm: "HS256",
-    expiresIn: "10m",
-  };
+  const secret = config.jwt.secret;
+  const options = config.jwt.options;
   const token = jwt.sign(payload, secret, options);
   const body = {
     email: req.body.email,
@@ -38,7 +35,7 @@ router.post("/", function (req, res, next) {
   res.status(200).json(body);
 });
 
-router.post("/kakunin", sessionCheck, jwtCheck, function (req, res, next) {
+router.post("/kakunin", authenticate.sessionCheck, authenticate.jwtCheck, function (req, res, next) {
   // session
   console.log(req.session);
   console.log(req.session.name);
