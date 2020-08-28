@@ -3,6 +3,7 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const authenticate = require("../utils/authenticate");
 const config = require("../utils/config");
+const constant = require("../utils/constant");
 
 /* database化 */
 const account = {
@@ -32,7 +33,7 @@ router.post("/", function (req, res, next) {
     token: token,
   };
   console.log(token);
-  res.status(200).json(body);
+  res.status(constant.httpStatus.SUCCESS).json(body);
 });
 
 router.post("/kakunin", authenticate.sessionCheck, authenticate.jwtCheck, function (req, res, next) {
@@ -42,7 +43,7 @@ router.post("/kakunin", authenticate.sessionCheck, authenticate.jwtCheck, functi
 
   // jsonwebtoken
   console.log(req.jwtPayload.email);
-  res.status(200).json({
+  res.status(constant.httpStatus.SUCCESS).json({
     message: "Hello!",
     authEmail: req.jwtPayload.email,
   });
