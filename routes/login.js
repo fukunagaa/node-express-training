@@ -12,7 +12,6 @@ router.post("/", function (req, res, next) {
   if (account.password === req.body.password) {
     req.session.name = account.name;
     const hour = 1800000;
-    req.session.cookie.expires = new Date(Date.now() + hour);
     req.session.cookie.maxAge = hour;
   }
   console.log(req.session);
