@@ -10,6 +10,12 @@ index.html を SPA として RestAPI を想定して作成
 $ npm install -g express-generator
 ```
 
+- nodemon をグローバルにインストール
+
+```
+$ npm install -g nodemon
+```
+
 - express generator による作成
 
 ```
@@ -20,7 +26,7 @@ $ express --no-view ./node-express-training
 
 ```
 $ npm install --save-dev express
-$ npm install --save-dev nodemon cookie-parser http-errors morgan
+$ npm install --save-dev cookie-parser http-errors morgan
 ```
 
 - jsonwebtoken のインストール
