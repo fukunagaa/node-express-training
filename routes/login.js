@@ -17,6 +17,7 @@ router.post("/", function (req, res, next) {
   if (account.password === req.body.password) {
     req.session.name = account.name;
     req.session.cookie.maxAge = config.session.maxAge;
+    req.session.age = 11;
   }
   console.log(req.session);
   console.log(req.session.name);
@@ -37,6 +38,7 @@ router.post("/", function (req, res, next) {
 });
 
 router.post("/kakunin", authenticate.sessionCheck, authenticate.jwtCheck, function (req, res, next) {
+  console.log();
   // session
   console.log(req.session);
   console.log(req.session.name);

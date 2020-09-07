@@ -2,6 +2,9 @@ const express = require("express");
 const path = require("path");
 const http = require("http");
 const session = require("express-session");
+const redis = require("redis");
+const RedisStore = require("connect-redis")(session);
+const redisClient = redis.createClient(6379, "192.168.56.101");
 const logger = require("morgan");
 
 const indexRouter = require("./routes/index");
@@ -13,6 +16,7 @@ const app = express();
 app.use(
   session({
     secret: "secret",
+    store: new RedisStore({ client: redisClient }),
     resave: false,
     saveUninitialized: false,
     cookie: {
